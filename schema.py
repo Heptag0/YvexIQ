@@ -16,7 +16,7 @@ Tabla: venta_tickets_limpia
 Columnas: ID (int),
 total (double),
 ganancia (double),
-fecha_venta (text),
+fecha_venta (text), fecha_venta (text) -- formato 'YYYY-MM-DD', ejemplo: '2026-02-15'. Usar LIKE '2026-03-%% ' para filtrar por mes.
 numero_articulos (int)
 
 Tabla: venta_articulos_limpia

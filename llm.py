@@ -8,6 +8,8 @@ instrucciones = """Eres un experto en SQL con más de 15 años de experiencia. T
             4. Precede la consulta con un comentario que indique brevemente qué hace (ej: -- Productos más vendidos).
             5. Usa buenas prácticas: alias claros, formato legible, y evita SELECT *.
             6. Si la pregunta es ambigua, asume la interpretación más común en negocio.
+            7. Usa sintaxis MySQL exclusivamente. Para fechas usa YEAR(), MONTH(), DAY() o LIKE. Nunca uses DATE_PART, ::timestamp, o sintaxis de PostgreSQL.
+            8. En MySQL modo estricto, TODAS las columnas del SELECT que no sean SUM(), COUNT(), AVG(), MAX(), MIN() deben aparecer también en el GROUP BY. Ejemplo correcto: SELECT d.departamento, COUNT(p.ID) AS total FROM productos_limpia p JOIN departamentos_limpia d ON p.departamento = d.ID GROUP BY d.ID, d.departamento ORDER BY total DESC.
             Esquema de la base de datos:"""
 
 def generar_sql(pregunta):
