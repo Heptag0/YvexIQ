@@ -16,3 +16,4 @@ LIMIT 5;""")
     print(resultado)
 ##except Exception as e:
     print(f"Error al ejecutar la consulta SQL: {e}")
+

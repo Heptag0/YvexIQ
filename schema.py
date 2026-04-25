@@ -1,7 +1,8 @@
 def obtener_schema():
     return """
 Tabla: productos_limpia
-Columnas: ID (int), codigo_producto (text), descripcion (text) -- NOMBRE del producto, NUNCA usar "producto_nombre", precio_costo (double), precio_venta (double), departamento (int) -- ID del departamento hace JOIN con departamentos_limpia.ID, porcentaje_ganancia (double), fecha_editado (text), es_kit (text), eliminado_en (text) -- fecha de registro, ignorar para filtrar productos activos
+Columnas: ID (int), codigo_producto (text), descripcion (text) -- NOMBRE del producto ADVERTENCIA: La columna "producto_nombre" NO EXISTE en esta tabla. 
+Usar SIEMPRE "descripcion" para el nombre del producto., precio_costo (double), precio_venta (double), departamento (int) -- ID del departamento hace JOIN con departamentos_limpia.ID, porcentaje_ganancia (double), fecha_editado (text), es_kit (text), eliminado_en (text) -- fecha de registro, ignorar para filtrar productos activos
 IMPORTANTE: La tabla tiene 383 productos activos. Para contarlos usar SELECT COUNT(*) FROM productos_limpia SIN WHERE.
 
 Tabla: venta_tickets_limpia

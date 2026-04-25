@@ -1,5 +1,31 @@
 # Changelog
 
+## V2.0.0
+### Nuevas Features
+- Reintento automático de consultas SQL con autocorrección de errores
+- Gráficos automáticos con Plotly (barras, línea y pastel según el tipo de datos)
+- Sugerencias de preguntas alternativas cuando no se puede responder
+- Spinner de carga "Analizando tu consulta..." en la interfaz
+
+### Mejoras
+- Limpieza automática del bloque thinking con re.sub para compatibilidad con modelos futuros
+- Función corregir_sql() con contexto del error para mejor autocorrección
+- Detección automática del tipo de gráfico según columnas del DataFrame
+- Ordenación correcta de meses en gráficos de línea
+
+### Archivos modificados
+- main.py, llm.py, app.py, prompt.py, schema.py
+### Archivos nuevos
+- grafico.py
+
+## V1.5.2
+### Correcciones críticas
+- Solucionado error de relación entre venta_articulos_limpia y venta_tickets_limpia (columna ticket_id añadida)
+
+### Mejoras de prompt
+- Regla 18: interpretación de fechas ambiguas (primera semana, segunda semana, etc.)
+- Regla 19: búsqueda de productos por marca/tipo con LIKE
+
 ## V1.5.0
 ### Mejoras
 - Separación del prompt a archivo independiente (prompt.py)
