@@ -1,5 +1,24 @@
 # Changelog
 
+## V2.3.0
+### Nuevas Features
+- Sugerencias clickeables que ejecutan la consulta automáticamente
+
+### Correcciones
+- Sugerencias ahora solo proponen consultas que el sistema puede responder
+- Fix session_state para mantener sugerencias entre recargas
+
+### Reorganizacion
+- app.py reorganizado por bloques con comentarios
+- main.py con función limpiar_respuesta() eliminando código duplicado
+- llm.py con constante MODELO — cambiar modelo en una sola línea
+- grafico.py con constantes PALABRAS_FECHA y ORDEN_MESES
+- Docstrings en todas las funciones principales
+- Secciones comentadas con── en todos los archivos
+
+### Archivos modificados
+- app.py, main.py, llm.py, grafico.py
+
 ## V2.2.0
 ### Cambios de modelo
 - Migración de qwen2.5-coder:7b a deepseek-coder-v2:lite
