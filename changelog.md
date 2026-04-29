@@ -1,5 +1,23 @@
 # Changelog
 
+## V2.5.0
+### Mejoras visuales
+- Tema oscuro forzado globalmente con config.toml
+- Paleta de colores: gris carbón, violeta semitransparente y blanco hueso
+- CSS personalizado en archivo independiente styles.css
+- Título con nombre YvexIQ e IQ en color violeta
+- Input de texto estilizado con hover y focus
+- Botones diferenciados — Rápida oscuro, Profunda violeta semitransparente
+- Gráficos Plotly con paleta morada y fondo transparente
+- Modo oscuro forzado — experiencia consistente independiente del navegador
+
+### Archivos nuevos
+- styles.css
+- .streamlit/config.toml
+
+### Archivos modificados
+- app.py, graficos.py
+
 ## V2.4.0
 ### Nuevas Features
 - Caché de consultas por sesión — consultas repetidas responden instantáneamente

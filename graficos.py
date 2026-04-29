@@ -39,20 +39,37 @@ def detectar_grafico(df):
         return "barras"
 
 #  GENERACIÓN DE GRÁFICO
+COLOR_PRINCIPAL = "rgba(187, 128, 235, 0.473)"
+TEMA = "plotly_dark"
+
 def generar_grafico(df, tipo):
     """Genera el gráfico Plotly correspondiente según el tipo detectado"""
 
     if tipo == "barras":
-        fig = px.bar(df, x=df.columns[0], y=df.columns[1], text_auto=True)
+        fig = px.bar(df, x=df.columns[0], y=df.columns[1], 
+                    text_auto=True,
+                    color_discrete_sequence=[COLOR_PRINCIPAL],
+                    template=TEMA)
 
     elif tipo == "linea":
         col_x = df.columns[0]
         if any(mes in df[col_x].values for mes in ORDEN_MESES):
             df[col_x] = pd.Categorical(df[col_x], categories=ORDEN_MESES, ordered=True)
             df = df.sort_values(col_x)
-        fig = px.line(df, x=df.columns[0], y=df.columns[1], markers=True)
+        fig = px.line(df, x=df.columns[0], y=df.columns[1], 
+                     markers=True,
+                     color_discrete_sequence=[COLOR_PRINCIPAL],
+                     template=TEMA)
 
     elif tipo == "pastel":
-        fig = px.pie(df, names=df.columns[0], values=df.columns[1], hole=0.4)
+        fig = px.pie(df, names=df.columns[0], values=df.columns[1], 
+                    hole=0.4,
+                    color_discrete_sequence=px.colors.sequential.Purples[2:],
+                    template=TEMA)
+
+    fig.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+    )
 
     return fig

@@ -1,0 +1,88 @@
+/* FONDO GENERAL */
+.stApp,
+section[data-testid="stAppViewContainer"],
+section[data-testid="stHeader"] {
+    background-color: #1e1e24;
+}
+
+/* OCULTAR BARRA DE HERRAMIENTAS 
+header[data-testid="stHeader"] {
+    display: none;
+} */
+
+/* TEXTO GENERAL */
+p, span, label, div {
+    color: #e5e0d4 !important;
+}
+
+/* INPUT DE TEXTO */
+.stTextInput input {
+    background-color: #2a2a34;
+    border: 0.5px solid #3d3d50;
+    border-radius: 10px;
+    color: #ede8dc;
+    padding: 12px 16px;
+}
+
+.stTextInput input:hover {
+    border-color: #7c5cbf;
+}
+
+.stTextInput input:focus {
+    border-color: #9b6dff;
+    outline: none;
+}
+
+/* Primer botón — Rápida */
+[data-testid="stColumn"]:first-child [data-testid="stBaseButton-secondary"] {
+    background-color: #2a2a34 !important;
+    color: #ede8dc !important;
+    border: 0.5px solid #3d3d50 !important;
+    border-radius: 8px !important;
+}
+
+/* Segundo botón — Profunda */
+[data-testid="stColumn"]:last-child [data-testid="stBaseButton-secondary"] {
+    background-color: rgba(187, 128, 235, 0.473) !important;
+    color: #f0ebff !important;
+    border: none !important;
+    border-radius: 8px !important;
+}
+
+/* Hover y click — Rápida */
+[data-testid="stColumn"]:first-child [data-testid="stBaseButton-secondary"]:hover {
+    background-color: #3a3a4a !important;
+    border-color: #7c5cbf !important;
+}
+
+[data-testid="stColumn"]:first-child [data-testid="stBaseButton-secondary"]:active {
+    background-color: #4a3a6a !important;
+}
+
+/* Hover y click — Profunda */
+[data-testid="stColumn"]:last-child [data-testid="stBaseButton-secondary"]:hover {
+    background-color: #a27ef0c5 !important;
+}
+
+[data-testid="stColumn"]:last-child [data-testid="stBaseButton-secondary"]:active {
+    background-color: #6a4aaf !important;
+}
+
+/* TITULO */
+
+.brand-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ede8dc !important;
+    margin-bottom: 0;
+}
+
+.brand-header h1 span {
+    color: #b977ef !important;
+}
+
+.brand-header p {
+    color: #7a7a8a !important;
+    font-size: 1rem;
+    margin-top: 4px;
+}

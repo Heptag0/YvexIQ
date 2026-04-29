@@ -1,6 +1,8 @@
 import streamlit as st
 from main import consultar
 from graficos import detectar_grafico, generar_grafico
+with open("styles.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # MEMORIA DE SESIÓN 
 # Inicializar variables que necesitan mantenerse en recargas
@@ -21,7 +23,12 @@ if "lista_sugerencias" not in st.session_state:
     st.session_state.lista_sugerencias = None
 
 # INTERFAZ
-st.title("Consulta de Ventas")
+st.markdown("""
+    <div class="brand-header">
+        <h1>Yvex<span>IQ</span></h1>
+        <p>Pregunta. Analiza. Decide.</p>
+    </div>
+""", unsafe_allow_html=True)
 pregunta = st.text_input("Ingrese su pregunta sobre tus ventas", 
                           value=st.session_state.pregunta)
 
@@ -47,9 +54,13 @@ if st.session_state.ejecutar:
 # BOTONES PRINCIPALES
 col1, col2 = st.columns([1, 1])
 with col1:
+    st.markdown('<div class="boton-rapida">', unsafe_allow_html=True)
     rapida = st.button("⚡ Rápida")
+    st.markdown('</div>', unsafe_allow_html=True)
 with col2:
+    st.markdown('<div class="boton-profunda">', unsafe_allow_html=True)
     profunda = st.button("🔍 Profunda")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # BLOQUE RESPUESTA PROFUNDA
 if profunda:
