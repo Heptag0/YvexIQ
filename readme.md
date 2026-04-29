@@ -1,5 +1,10 @@
 [English](#yvexiq---english) | [Español](#espanol)
 
+[Español](#yvexiq----español)
+[Español](#yvexiq--español)
+
+[Español](#yvexiq)
+
 ---
 
 # YvexIQ — English
@@ -91,8 +96,6 @@ streamlit run app.py
 
 
 ---
-
-<a id="espanol"></a>
 
 # YvexIQ — Español
 
