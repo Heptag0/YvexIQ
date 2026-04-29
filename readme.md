@@ -1,4 +1,4 @@
-[English](#yvexiq---english) | [Español](#yvexiq---espa%C3%B1ol)
+[English](#yvexiq---english) | [Español](#español)
 
 ---
 
@@ -91,6 +91,8 @@ streamlit run app.py
 
 
 ---
+
+<a name="español"></a>
 
 # YvexIQ — Español
 
