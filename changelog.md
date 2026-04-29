@@ -1,5 +1,19 @@
 # Changelog
 
+## V2.6.0
+### Nuevas Features
+- Mensaje de bienvenida con 3 consultas de ejemplo clickeables
+- Ejemplos desaparecen al hacer la primera consulta con primera_vez session state
+- Placeholder descriptivo en el input de texto
+- Meses en español en gráficos de línea con diccionario de traducción
+
+### Mejoras
+- Tono del LLM más cercano y natural en modo profundo
+- Números destacados en color en respuestas del modo profundo
+
+### Archivos modificados
+- app.py, llm.py, graficos.py
+
 ## V2.5.0
 ### Mejoras visuales
 - Tema oscuro forzado globalmente con config.toml

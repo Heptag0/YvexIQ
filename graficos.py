@@ -5,9 +5,15 @@ import plotly.express as px
 PALABRAS_FECHA = ["fecha", "mes", "año", "dia", "semana", "trimestre", "periodo"]
 
 ORDEN_MESES = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
 ]
+TRADUCCION_MESES = {
+    "January": "Enero", "February": "Febrero", "March": "Marzo",
+    "April": "Abril", "May": "Mayo", "June": "Junio",
+    "July": "Julio", "August": "Agosto", "September": "Septiembre",
+    "October": "Octubre", "November": "Noviembre", "December": "Diciembre"
+}
 
 #  DETECCIÓN DE TIPO DE GRÁFICO
 def detectar_grafico(df):
@@ -53,6 +59,7 @@ def generar_grafico(df, tipo):
 
     elif tipo == "linea":
         col_x = df.columns[0]
+        df[col_x] = df[col_x].replace(TRADUCCION_MESES)
         if any(mes in df[col_x].values for mes in ORDEN_MESES):
             df[col_x] = pd.Categorical(df[col_x], categories=ORDEN_MESES, ordered=True)
             df = df.sort_values(col_x)
