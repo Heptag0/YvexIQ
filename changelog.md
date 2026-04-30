@@ -1,5 +1,17 @@
 # Changelog
 
+## V2.7.0
+### Nuevas Features
+- Tiempo de respuesta visible al final de cada consulta
+- Mensaje visual estilizado cuando no hay resultados — borde violeta y fondo oscuro
+- Límite de 150 caracteres en el input de texto
+
+### Descartado
+- Indicador de modo — descartado por ser información redundante
+
+### Archivos modificados
+- app.py, styles.css
+
 ## V2.6.0
 ### Nuevas Features
 - Mensaje de bienvenida con 3 consultas de ejemplo clickeables
