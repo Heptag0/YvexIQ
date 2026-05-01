@@ -86,13 +86,3 @@ p, span, label, div {
     font-size: 1rem;
     margin-top: 4px;
 }
-
-/* MENSAJE SIN RESULTADOS */
-.mensaje-info {
-    border-left: 3px solid rgba(187, 128, 235, 0.473);
-    padding: 12px 16px;
-    background-color: #2a2a34;
-    border-radius: 0 8px 8px 0;
-    color: #9a99a8;
-    font-size: 14px;
-}

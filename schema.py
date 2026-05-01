@@ -1,27 +1,30 @@
 def obtener_schema():
     return """
-Tabla: productos_limpia
-Columnas: ID (int), codigo_producto (text), descripcion (text) -- NOMBRE del producto ADVERTENCIA: La columna "producto_nombre" NO EXISTE en esta tabla. 
-Usar SIEMPRE "descripcion" para el nombre del producto., precio_costo (double), precio_venta (double), departamento (int) -- ID del departamento hace JOIN con departamentos_limpia.ID, porcentaje_ganancia (double), fecha_editado (text), es_kit (text), eliminado_en (text) -- fecha de registro, ignorar para filtrar productos activos
-IMPORTANTE: La tabla tiene 383 productos activos. Para contarlos usar SELECT COUNT(*) FROM productos_limpia SIN WHERE.
+Tabla: clientes_clean
+Columnas: id (int), nombre (varchar) -- nombre del registro, email (varchar) -- correo electrónico, telefono (varchar) -- número de teléfono, ciudad (varchar) -- ciudad del registro, pais (varchar) -- país del registro, fecha_registro (date) -- fecha en que se registró el cliente, fecha_ultima_compra (date) -- fecha de la última compra del cliente, total_gastado (decimal) -- valor monetario total, activo (int) -- indica si el registro está activo, notas_internas (varchar), codigo_legacy (varchar)
 
-Tabla: venta_tickets_limpia
-Columnas: ID (int), total (double), ganancia (double), fecha_venta (text) -- formato 'YYYY-MM-DD'. ES LA ÚNICA COLUMNA DE FECHA EN ESTA TABLA., numero_articulos (int)
+Tabla: departamentos_clean
+Columnas: id (int), nombre (varchar) -- nombre del registro, activo (int) -- indica si el registro está activo, codigo_interno (varchar), notas_sistema (varchar)
 
-Tabla: venta_articulos_limpia
-Columnas: ID (int), TICKET_ID (int), producto_codigo (varchar), producto_nombre (varchar), cantidad (float), precio_final (decimal) -- precio por unidad, total_articulo (decimal) -- precio_final x cantidad, ganancia (decimal), departamento_ID (int), pagado_en (timestamp) -- fecha y hora de la venta. USAR ESTA COLUMNA para filtrar por fecha en esta tabla
+Tabla: descuentos_clean
+Columnas: id (int), ticket_id (int), porcentaje (decimal), motivo (varchar) -- razón o motivo del registro
 
-Tabla: inventario_limpia
-Columnas: ID (int), producto_id (int), fecha_movimiento (text), cantidad_anterior (double), cantidad_movimiento (double), descripcion (text) -- descripcion del movimiento
--- Para calcular costo de inventario hacer JOIN con productos_limpia usando: inventario_limpia.producto_id = productos_limpia.ID y multiplicar cantidad_movimiento por precio_costo
+Tabla: devoluciones_clean
+Columnas: id (int), ticket_id (int), producto_id (int), cantidad (int) -- cantidad de unidades, fecha (date) -- fecha del registro, motivo (varchar) -- razón o motivo del registro
 
-Tabla: departamentos_limpia
-Columnas: ID (int), departamento (text), activo (int)
-Departamentos existentes: 1=Sin Departamento, 2=Productos Comunes, 4=LICORES, 5=Licores, 6=Cigarros, 7=Latas/latones, 8=Cuartitos/Medias, 9=Ballena/ballenon, 10=Bebidas, 11=Sabritas, 12=Dulces, 13=Pastillas, 14=Galletas, 15=Otros, 16=Abarrotes, 17=Bimbo
+Tabla: movimientos_clean
+Columnas: id (int), producto_id (int), fecha (date) -- fecha del registro, cantidad_anterior (int) -- unidades en inventario antes del movimiento, cantidad_movimiento (int) -- unidades añadidas o retiradas del inventario, descripcion (varchar) -- nombre o descripción del registro, hash_interno (varchar)
 
-Relaciones:
-- venta_articulos_limpia.TICKET_ID = venta_tickets_limpia.ID
-- venta_articulos_limpia.producto_codigo = productos_limpia.codigo_producto
-- venta_articulos_limpia.departamento_ID = departamentos_limpia.ID
-- inventario_limpia.producto_id = productos_limpia.ID
+Tabla: productos_clean
+Columnas: id (int), codigo (varchar), descripcion (varchar) -- nombre o descripción del registro, talla (varchar) -- talla del producto, color (varchar) -- color del producto, temporada (varchar) -- temporada de la colección del producto, precio_costo (decimal) -- precio de compra al proveedor, precio_venta (decimal) -- precio de venta al cliente, stock_actual (int) -- unidades disponibles actualmente en inventario, departamento_id (int), proveedor_id (int), fecha_creado (date) -- fecha de creación del producto, codigo_barras_viejo (varchar), notas (varchar), ultima_modificacion_sistema (date)
+
+Tabla: proveedores_clean
+Columnas: id (int), nombre (varchar) -- nombre del registro, pais (varchar) -- país del registro, email (varchar) -- correo electrónico, telefono (varchar) -- número de teléfono
+
+Tabla: ticket_productos_clean
+Columnas: id (int), ticket_id (int), producto_id (int), cantidad (int) -- cantidad de unidades, precio_unitario (decimal) -- precio del producto, total (decimal) -- valor monetario total, ganancia (decimal) -- beneficio económico
+
+Tabla: tickets_clean -- tabla principal de ventas, cada fila es una venta
+Columnas: id (int), cliente_id (int), total (decimal) -- valor monetario total, ganancia (decimal) -- beneficio económico, fecha (date) -- fecha del registro, numero_articulos (int), metodo_pago (varchar) -- método de pago usado — efectivo, tarjeta o transferencia, canal (varchar) -- canal de venta — tienda física, online o teléfono, operador_codigo (varchar) -- código del operador que realizó la venta
+
 """

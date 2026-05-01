@@ -48,7 +48,7 @@ if st.session_state.ejecutar:
             respuesta_texto, resultado, lista_sugerencias = consultar(pregunta, modo="rapido")
             st.session_state.lista_sugerencias = lista_sugerencias
             if respuesta_texto is not None:
-                st.markdown(f'<div class="mensaje-info">{respuesta_texto}</div>', unsafe_allow_html=True)
+                st.write(respuesta_texto)
             if resultado is not None:
                 st.dataframe(resultado.reset_index(drop=True), hide_index=True)
                 if resultado.shape[0] > 0 and resultado.shape[1] >= 2:
@@ -82,7 +82,7 @@ if profunda:
             respuesta_natural, resultado, lista_sugerencias = consultar(pregunta, modo="profundo")
             st.session_state.lista_sugerencias = lista_sugerencias
             if respuesta_natural is not None:
-                st.markdown(f'<div class="mensaje-info">{respuesta_natural}</div>', unsafe_allow_html=True)
+                st.write(respuesta_natural)
             if resultado is not None:
                 st.dataframe(resultado.reset_index(drop=True), hide_index=True)
                 if resultado.shape[0] > 0 and resultado.shape[1] >= 2:
@@ -105,7 +105,7 @@ if rapida:
             respuesta_texto, resultado, lista_sugerencias = consultar(pregunta, modo="rapido")
             st.session_state.lista_sugerencias = lista_sugerencias
             if respuesta_texto is not None:
-                st.markdown(f'<div class="mensaje-info">{respuesta_texto}</div>', unsafe_allow_html=True)
+                st.write(respuesta_texto)
             if resultado is not None:
                 st.dataframe(resultado.reset_index(drop=True), hide_index=True)
                 if resultado.shape[0] > 0 and resultado.shape[1] >= 2:
